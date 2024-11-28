@@ -31,7 +31,13 @@ const fetchItem = async () => {
   error.value = null
   try {
     const PROXY = '/proxy';
-    const response = await fetch(`${PROXY}/item`)
+    const response = await fetch(`${PROXY}/item`, {
+      headers: {
+        'ngrok-skip-browser-warning': 'true',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
