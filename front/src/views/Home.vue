@@ -30,7 +30,8 @@ const fetchItem = async () => {
   loading.value = true
   error.value = null
   try {
-    const response = await fetch('http://localhost:3000/item')
+    const PROXY = '/proxy';
+    const response = await fetch(`${PROXY}/item`)
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
